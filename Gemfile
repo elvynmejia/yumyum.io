@@ -12,6 +12,8 @@ gem 'pg'
 
 gem 'responders'
 
+gem 'httparty'
+
 
 
 # To use ActiveModel has_secure_password
