@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    Booking.all.includes(:atteendees)
+    bookings = Booking.all.includes(:atteendees)
     # bookings = Booking.find_by_lat_long_and_time(
     #   params[:lat],
     #   params[:long],
