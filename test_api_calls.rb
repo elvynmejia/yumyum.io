@@ -10,7 +10,6 @@ class APIUtil
     APIUtil.open_table_get(url)
   end
 
-
   def self.get_restaurants_by_location(lat = 37.782039, long = -122.391139, date = Date.tomorrow, time = "12:00", party_size = 5, radius = 10)
     # Returns an array of restaurant objects
     datetime = format_datetime(date, time)
