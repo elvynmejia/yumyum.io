@@ -5,7 +5,7 @@ class APIUtil
   def self.get_restaurants
     url = "https://platform.otqa.com/availability/334879?start_date_time=2017-03-29T18%3A00&party_size=2&forward_minutes=120&backward_minutes=30"
     APIUtil.open_table_get(url)
-
+  end
 
   def self.provisional_lock(size, date, time, restaurant_id)
     # Returns status code, reservation token with an expiration time
