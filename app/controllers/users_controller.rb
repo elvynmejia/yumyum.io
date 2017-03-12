@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  #before_action :authenticate_with_token!, only: [:show] #it works
 
   def show
     respond_with(get_user)
