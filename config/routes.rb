@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, defaults: { format: :json }
   root "welcome#index"
   resources :welcome, only: :index
-  resources :users, except: [:new, :edit, :destroy]
+  resources :users, :only => [:show, :create]
 end
