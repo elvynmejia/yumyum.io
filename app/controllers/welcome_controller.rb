@@ -1,4 +1,4 @@
-require_relative '../../test_api_calls'
+# require_relative '../../test_api_calls'
 
 class WelcomeController < ApplicationController
   def index
