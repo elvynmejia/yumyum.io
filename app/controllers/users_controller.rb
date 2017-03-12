@@ -1,12 +1,7 @@
 class UsersController < ApplicationController
 
-  def index
-    users = User.all
-    respond_with(users)
-  end
-
   def show
-    respond_with(get_user)
+    respond_with(User.find(params[:id]))
   end
 
   def create

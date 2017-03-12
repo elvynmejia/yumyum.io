@@ -13,6 +13,7 @@ gem 'pg'
 gem 'responders'
 
 gem 'httparty'
+gem "devise"
 
 
 
