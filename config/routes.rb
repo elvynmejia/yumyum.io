@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root "welcome#index"
   resources :welcome, only: :index
   resources :users, :only => [:show, :create]
+  resources :bookings, only: [:create, :index]
 end
