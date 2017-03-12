@@ -5,20 +5,20 @@ class APIUtil
   AUTH_HEADER = { "Authorization" => "Bearer 27037c67-f394-4cfd-ab51-069ac71132fb" }
 
 
-  def get_restaurants
+  def self.get_restaurants
     url = "https://platform.otqa.com/availability/334879?start_date_time=2017-03-29T18%3A00&party_size=2&forward_minutes=120&backward_minutes=30"
     open_table_get(url)
   end
 
 
-  def get_restaurants_by_location(lat, long, date, time, party_size = 5, radius = 200)
+  def self.get_restaurants_by_location(lat, long, date, time, party_size = 5, radius = 200)
     # Returns an array of restaurant objects
     datetime = format_datetime(date, time)
     url = "https://platform.otqa.com/availability?latitude=#{lat}&longitude=#{long}&party_size=#{party_size}&radius=#{radius}&forward_minutes=15&backward_minutes=15&start_date_time=#{datetime}&include_unavailable=true"
     open_table_get(url)
   end
 
-  def provisional_lock(size, date, time, restaurant_id)
+  def self.provisional_lock(size, date, time, restaurant_id)
     # Returns status code, reservation token with an expiration time
     datetime = format_datetime(date, time)
     url = "https://platform.otqa.com/booking/slot_locks"
@@ -30,7 +30,7 @@ class APIUtil
     open_table_post(url, data)
   end
 
-  def make_reservation(data)
+  def self.make_reservation(data)
     open_table_post("https://platform.otqa.com/booking/reservations", data)
   #   Sample Request Body
   # {
@@ -84,7 +84,7 @@ class APIUtil
 
   end
 
-  def get_reservation(restaurant_id, confirmation_number)
+  def self.get_reservation(restaurant_id, confirmation_number)
     url = "https://platform.opentable.com/booking/reservations/#{restaurant_id}-#{confirmation_number}"
     open_table_get(url)
   end
