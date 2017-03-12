@@ -16,6 +16,7 @@ gem 'httparty'
 gem "devise"
 
 gem 'geocoder'
+gem 'geokit'
 
 
 # To use ActiveModel has_secure_password

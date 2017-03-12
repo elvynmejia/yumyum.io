@@ -1,7 +1,10 @@
 class BookingsController < ApplicationController
 
   def index
-    bookings  = current_user.bookings.feed
+    bookings = Booking.find_by_location_and_time(
+      params[:location],
+      params[:date],
+      params[:time])
     respond_with(bookings)
   end
 
@@ -12,7 +15,9 @@ class BookingsController < ApplicationController
       format.json { render json: @booking }
     end
   end
+
   private
+
   def booking_params
     params.require(:booking).permit(:user_id, :confirmation_number, :message, :date_time, :party_size, :restaurant_id)
   end

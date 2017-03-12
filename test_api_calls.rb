@@ -2,21 +2,10 @@ require 'httparty'
 
 class APIUtil
 
-  AUTH_HEADER = { "Authorization" => "Bearer 27037c67-f394-4cfd-ab51-069ac71132fb" }
-
-
   def self.get_restaurants
     url = "https://platform.otqa.com/availability/334879?start_date_time=2017-03-29T18%3A00&party_size=2&forward_minutes=120&backward_minutes=30"
     APIUtil.open_table_get(url)
-  end
 
-
-  def self.get_restaurants_by_location(lat = 37.782039, long = -122.391139, date = Date.tomorrow, time = "12:00", party_size = 5, radius = 10)
-    # Returns an array of restaurant objects
-    datetime = format_datetime(date, time)
-    url = "https://platform.otqa.com/availability?latitude=#{lat}&longitude=#{long}&party_size=#{party_size}&radius=#{radius}&forward_minutes=15&backward_minutes=15&start_date_time=#{datetime}&include_unavailable=true"
-    APIUtil.open_table_get(url)
-  end
 
   def self.provisional_lock(size, date, time, restaurant_id)
     # Returns status code, reservation token with an expiration time
@@ -87,22 +76,6 @@ class APIUtil
   def self.get_reservation(restaurant_id, confirmation_number)
     url = "https://platform.opentable.com/booking/reservations/#{restaurant_id}-#{confirmation_number}"
     APIUtil.open_table_get(url)
-  end
-
-  def self.open_table_get(url)
-    HTTParty.get(url, headers: AUTH_HEADER)
-  end
-
-  def self.open_table_post(url, data)
-    headers = AUTH_HEADER.dup
-    headers['Content-Type'] = 'application/json'
-    HTTParty.post(url, body: data.to_json, headers: headers)
-  end
-
-
-  def self.format_datetime(date, time)
-    # TODO fix this
-    "2017-03-13T20%3A00"
   end
 
   # puts get_restaurants_by_location(37.782039, -122.391139, "today", "4:00")
