@@ -1,13 +1,8 @@
 class RestaurantsController < ApplicationController
   def index
-    restaurants = Restaurant.find_by_location_and_availability(
-      params[:location],
-      params[:date],
-      params[:time],
-      params[:size],
-      params[:radius]
-    )
-    respond_with restaurants
+    @restaurants = Restaurant.find_by_lat_long_and_availability
+    # puts restaurants
+    render json: @restaurants
   end
 
   # def show
