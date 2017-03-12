@@ -1,3 +1,5 @@
+require 'httparty'
+
 class APIUtil
   AUTH_HEADER = { "Authorization" => "Bearer 27037c67-f394-4cfd-ab51-069ac71132fb" }
 

@@ -1,9 +1,9 @@
 # require "app/util/util"
-# require "app/util/api_util"
+require_relative "./api_util"
 
 class Restaurant
   def self.find_by_id(id)
-
+    APIUtil.open_table_get("https://platform.otqa.com/sync/listings")
   end
 
   def self.find_by_lat_long(lat = 37.782039, long = -122.391139)
@@ -48,3 +48,5 @@ class Restaurant
     APIUtil.open_table_get(url)
   end
 end
+
+puts Restaurant.find_by_id(2)
