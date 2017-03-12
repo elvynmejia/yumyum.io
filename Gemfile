@@ -15,6 +15,7 @@ gem 'responders'
 gem 'httparty'
 gem "devise"
 
+gem 'geocoder'
 
 
 # To use ActiveModel has_secure_password
