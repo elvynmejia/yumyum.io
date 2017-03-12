@@ -1,11 +1,12 @@
 class BookingsController < ApplicationController
 
   def index
-    bookings = Booking.find_by_lat_long_and_time(
-      params[:lat],
-      params[:long],
-      params[:date],
-      params[:time])
+    Booking.all.includes(:atteendees)
+    # bookings = Booking.find_by_lat_long_and_time(
+    #   params[:lat],
+    #   params[:long],
+    #   params[:date],
+    #   params[:time])
     respond_with(bookings)
   end
 
